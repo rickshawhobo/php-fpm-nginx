@@ -40,8 +40,8 @@ RUN echo "cgi.fix_pathinfo=0" > ${php_vars} &&\
         -e "s/listen = 127.0.0.1:9000/listen = \/var\/run\/php-fpm.sock/g" \
         -e "s/^;clear_env = no$/clear_env = no/" \
         ${fpm_conf}
-
-
+RUN apt-get update && apt-get install -y libsqlite3-dev libmcrypt-dev zlib1g-dev \
+&& docker-php-ext-install pdo_mysql pdo_sqlite mysqli mcrypt  json   zip opcache
 
 EXPOSE 443 80
 
