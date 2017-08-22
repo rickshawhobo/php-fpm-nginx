@@ -38,4 +38,7 @@ RUN sed -i \
 
 EXPOSE 443 80
 
+# uncomment to install mongodb extension
+# RUN apt-get install -y libssl-dev && pecl install mongodb
+# echo "echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/docker-php-ext-mongodb.ini
 CMD ["/bin/bash", "/entrypoint.sh"]
